@@ -1,11 +1,11 @@
 var wincount = 0;
-var test = [test1,test2,test3];
+var test0;
 var test1;
 var test2;
 var test3;
 $('.buttonOne').on('click', function(){
     // test1 = $('input:radio[name=qOne]:checked').val();   
-    test[0] = $('input:radio[name=qOne]:checked').val();   
+    test0 = $('input:radio[name=qOne]:checked').val();   
     
 });
 
@@ -13,22 +13,29 @@ $('.buttonOne').on('click', function(){
 
 $('.buttonTwo').on('click', function(){
     // test2 = $('input:radio[name=qTwo]:checked').val();
-    test[1]= $('input:radio[name=qTwo]:checked').val();
+    test1= $('input:radio[name=qTwo]:checked').val();
 });
 
 //NEXT QUESTION
 
 $('.buttonThree').on('click', function(){
-    test[2] = $('input:radio[name=qThree]:checked').val();
+    test2 = $('input:radio[name=qThree]:checked').val();
 });
 
 $('#done').on('click',function(){
     
-    for(var i = 1 ; i < 4; i++){;
-        if(test[i]){
-            wincount++;
+   
+        if(test0 == 'true' && test1 == 'true' && test2 =='true'){
+            wincount= wincount + 3;
+        }else if(test0 == 'true' && test1 =='true' || test0=='true' && test2=='true' || test1 =='true' && test2=='true'){
+            wincount = wincount + 2;
+        }else if(test0=='true' || test1=='true' || test2=='true'){
+            wincount= wincount + 1;
         }
-    }
+        console.log(wincount);
+        
+        
+    
     
     // if(test1){
     //     wincount++;
@@ -37,5 +44,6 @@ $('#done').on('click',function(){
 
 })
 
+console.log(wincount);
 
 
