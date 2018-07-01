@@ -34,12 +34,17 @@ $('#done').on('click',function(){
     //     console.log(wincount);
     // }
 
-})
+});
 
 console.log(wincount);
 
 //TIMER
+$('#secondpage').hide();
+$('#butt').on('click', function(){
+   $('#butt').hide();
+   $('#secondpage').show();
+   
 
-
+});
 
 
