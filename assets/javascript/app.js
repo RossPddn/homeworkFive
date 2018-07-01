@@ -1,5 +1,6 @@
 var wincount = 0;
 var loscount = 0;
+var unanswered = 3;
 var test0;
 var test1;
 var test2;
@@ -13,19 +14,23 @@ $('#butt').on('click', function(){
    
 
 });
+
 //Radio Buttons
 $('.buttonOne').on('click', function(){
     // test1 = $('input:radio[name=qOne]:checked').val();   
-    test0 = $('input:radio[name=qOne]:checked').val();      
+    test0 = $('input:radio[name=qOne]:checked').val();     
+    unanswered = unanswered - 1; 
 });
 //NEXT QUESTION
 $('.buttonTwo').on('click', function(){
     // test2 = $('input:radio[name=qTwo]:checked').val();
     test1= $('input:radio[name=qTwo]:checked').val();
+    unanswered = unanswered - 1; 
 });
 //NEXT QUESTION
 $('.buttonThree').on('click', function(){
     test2 = $('input:radio[name=qThree]:checked').val();
+    unanswered = unanswered - 1; 
 });
 function checkfalse(){
     if(test0 == 'false' && test1 == 'false' && test2 =='false'){
@@ -47,8 +52,10 @@ $('#done').on('click',function(){
         }
         checkfalse()
         showfinalpage();
+       
         console.log(wincount);
         console.log(loscount);
+        console.log(unanswered);
         
         
     
@@ -60,6 +67,8 @@ function showfinalpage(){
     $('.well').show();
     $('#correctAns').text("Correct Answers:" + wincount);
     $('#incorrectAns').text("Inorrect Answers:" + loscount);
+    
+    $('#unAns').text("Unanswered:" + unanswered);
 }
 
 //TIMER
@@ -74,6 +83,7 @@ function countdown() {
     clearTimeout(timerId);
     timediv.text(0 + ' Out of time');
     showfinalpage();
+    
    
   } else {
     timediv.text((timeLeft-3) + ' seconds Left');
