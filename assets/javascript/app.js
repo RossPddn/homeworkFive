@@ -12,6 +12,24 @@ $('#butt').on('click', function(){
    $('#butt').hide();
    $('#secondpage').show();
    
+var timeLeft = 33;
+//var elem = document.getElementById('timerdiv');
+var timediv = $('#timerdiv');
+var timerId = setInterval(countdown, 1000);
+
+function countdown() {
+  if ((timeLeft-3) == 0) {
+    clearTimeout(timerId);
+    timediv.text(0 + ' Out of time');
+    showfinalpage();
+    
+   
+  } else {
+    timediv.text((timeLeft-3) + ' seconds Left');
+    timeLeft--;
+  }
+}
+   
 
 });
 
@@ -73,22 +91,22 @@ function showfinalpage(){
 
 //TIMER
 
-var timeLeft = 33;
-//var elem = document.getElementById('timerdiv');
-var timediv = $('#timerdiv');
-var timerId = setInterval(countdown, 1000);
+// var timeLeft = 33;
+// //var elem = document.getElementById('timerdiv');
+// var timediv = $('#timerdiv');
+// var timerId = setInterval(countdown, 1000);
 
-function countdown() {
-  if ((timeLeft-3) == 0) {
-    clearTimeout(timerId);
-    timediv.text(0 + ' Out of time');
-    showfinalpage();
+// function countdown() {
+//   if ((timeLeft-3) == 0) {
+//     clearTimeout(timerId);
+//     timediv.text(0 + ' Out of time');
+//     showfinalpage();
     
    
-  } else {
-    timediv.text((timeLeft-3) + ' seconds Left');
-    timeLeft--;
-  }
-}
+//   } else {
+//     timediv.text((timeLeft-3) + ' seconds Left');
+//     timeLeft--;
+//   }
+// }
 
 
